@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.container{
+    height: 100%;
+    max-width: 1200px;
+    /* max-width se ye hoga ki agar hum kam content daalenge toh hamara block utna hi rhega lekin hum bahut zyada content agar daalte hain toh hamara block sirf 1200px tab bada ho paega uske aage content nhi jaega usme overflow ho jaega */
+    margin: 0 auto; 
+    /* margin: 0 auto se ye hota hai ki margin left side aur right side iss tarah lagaya jaata hai ki hamara content beech mein aa jaye, basically block ko centre mein place karne ke liye kiya gaya hai */
+    padding: 20px;
+}
+
+.container h1{
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-wrap lagana isliye zaruri hai varna saare ke saare element(images) same horizontal line par aa jaenge  */
+    justify-content: space-between;
+}
+
+.card{
+    width: 32%;
+    /* 32% width isliye di hai kyuki total width hamare pass 100 hai aur usme 3 card 32% ke ban jaenge ek horizontal line mein aur 4% space jo bachi hai vo unke beech ka space ho jaega */
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    /* kisi prakar ka overflow ho rha ho toh usey hide kar dena */
+}
+
+.card img{
+    height: 100%;
+    width: 100%;
+    filter: grayscale(100%);
+    /* iss se ek black and white color ka filter lag jaega saari images pe */
+    box-shadow: 0 0 20px #333;
+    object-fit: cover;
+}
+
+.card:hover{
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 10px #333);
+    /* drop-shadow() applies a drop shadow effect to the input page similar to the box-shadow, but is more appealing*/
+    transition: 0.5s ;
+}
+
+.card:hover img{
+    filter: grayscale(0%);
+}
+
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0;
+    /* opacity 0 matlab transparency full 100%, matlab ki dikhega hi nhi */
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    transition: 0.3s;
+}
+
+.card:hover figcaption{
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+
+
+
